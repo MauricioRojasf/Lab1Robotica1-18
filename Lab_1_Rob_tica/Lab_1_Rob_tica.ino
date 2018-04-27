@@ -26,6 +26,32 @@ void downDegree(int posFinal, Servo servo){
   }
 }
 
+void irBase(){
+  downDegree(93,serDer);
+  upDegree(93,serIzq);
+  if(serBase.read()>=90){
+    downDegree(90,serBase);
+  }
+  else{
+    upDegree(90,serBase);
+  }
+}
+
+void irCaja(int caja){
+  downDegree(93,serDer);
+  upDegree(93,serIzq);
+  switch(caja) {
+    case 1:
+      upDegree(129,serBase);
+      break;
+    case 2:
+      downDegree(70,serBase);
+      break;
+    case 3:
+      upDegree(105,serBase);
+  }
+}
+
 
 
 
