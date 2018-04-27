@@ -52,7 +52,25 @@ void irCaja(int caja){
   }
 }
 
-
+void tomarCaja(int caja){
+  switch(caja) {
+    case 1:
+      downDegree(70,serIzq);
+      upDegree(130,serDer);
+      downDegree(55,serPinza);
+      break;
+    case 2:
+      downDegree(70,serIzq);
+      upDegree(130,serDer);
+      downDegree(55,serPinza);
+      break;
+    case 3:
+      downDegree(70,serIzq);
+      upDegree(130,serDer);
+      downDegree(55,serPinza);
+      break;
+  }
+}
 
 
 
