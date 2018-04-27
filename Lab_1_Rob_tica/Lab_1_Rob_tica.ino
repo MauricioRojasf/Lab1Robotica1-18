@@ -14,7 +14,7 @@ void upDegree(int posFinal, Servo servo){
   int posActual;
   for(posActual = servo.read() ; posActual<=posFinal; posActual+=mov){
     servo.write(posActual);
-    delay(30);
+    delay(35);
   }
 }
 
@@ -22,7 +22,7 @@ void downDegree(int posFinal, Servo servo){
   int posActual;
   for(posActual = servo.read(); posActual > posFinal; posActual-=mov){
     servo.write(posActual);
-    delay(30);
+    delay(35);
   }
 }
 
@@ -72,7 +72,26 @@ void tomarCaja(int caja){
   }
 }
 
-
+void dejarCaja(int caja){
+  switch(caja) {
+    case 1:
+      downDegree(80,serIzq);
+      upDegree(130,serDer);
+      upDegree(90,serPinza);
+      break;
+    case 2:
+      upDegree(94,serBase);
+      downDegree(80,serIzq);
+      upDegree(123,serDer);
+      upDegree(90,serPinza);
+      break;
+    case 3:
+      downDegree(84,serIzq);
+      upDegree(122,serDer);
+      upDegree(90,serPinza);
+      break;
+  }
+}
 
 void setup() {
   // por DEFECTO al realizar el attach todos los servos parten en 93
@@ -90,5 +109,13 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  serPinza.write(90);
+  delay(100);
 
+  irCaja(caja);
+  tomarCaja(caja);
+  irBase();
+  dejarCaja(caja);
+  caja+=1;
+  delay(100);
 }
